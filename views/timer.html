@@ -1,7 +1,8 @@
 <h3>{{title}}</h3>
 <h2 id="date-value"></h2>
 <script type="text/javascript">
-$( document ).on( "pageinit", "#aboutPage", function( event ) {
-	alert( "This page was just enhanced by jQuery Mobile!" );
+
+$( document ).live( 'pageinit',function(event){
+  alert( 'This page was just enhanced by jQuery Mobile!' );
 });
 </script>
