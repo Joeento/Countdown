@@ -12,4 +12,8 @@ app.get('/countdown', function(req, res) {
    res.render('index',{"timers": timerContainer.getAllTimers()});
 });
  
+app.get('/timers/:id', function(req, res) {
+   var timer = timerContainer.getAllTimers(req.params.id);
+   res.render('article',{"id": req.params.id, "title":"Timer data", "timer":timer});
+});
 app.listen(8080);
