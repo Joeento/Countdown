@@ -1,7 +1,22 @@
-<h3>{{title}}</h3>
-<h2 id="date-value">dfgfdg</h2>
+There are
+<ul>
+	<li>100 days</li>
+	<li>6 hours</li>
+	<li>5 minutes</li>
+	<li>22 seconds</li>
+</ul>
+left until {{timer.name}}
+
+
 <script type="text/javascript">
-$( document ).live( 'pageinit',function(event){
-  alert( 'This page was just enhanced by jQuery Mobile!'+$("#date-value").html() );
-});
+	$( document ).live( 'pageinit',function(event){
+		var endDate = new Date({{timer.time}}*1000);
+		$("#date-value").html(endDate.toString());
+		setInterval(paintCountdown,1000)
+
+		function paintCountdown() {
+			var now = new Date();
+			console.log(endDate.getTime()-now.getTime());
+		}
+	});
 </script>

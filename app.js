@@ -13,7 +13,7 @@ app.get('/countdown', function(req, res) {
 });
  
 app.get('/countdown/timer/:id', function(req, res) {
-   var timer = timerContainer.getAllTimers(req.params.id);
-   res.render('timer',{"id": req.params.id, "title":"Timer data", "timer":timer});
+   var timer = timerContainer.getTimer(req.params.id);
+   res.render('timer',{"id": req.params.id, "timer":timer});
 });
 app.listen(8080);
