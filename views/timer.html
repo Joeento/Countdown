@@ -1,9 +1,9 @@
 There are
-<ul>
-	<li>100 days</li>
-	<li>6 hours</li>
-	<li>5 minutes</li>
-	<li>22 seconds</li>
+<ul id="time-left">
+	<li class="days-left"><span class="num">???</span> days</li>
+	<li class="hours-left"><span class="num">???</span> hours</li>
+	<li class="minutes-left"><span class="num">???</span> minutes</li>
+	<li class="seconds-left"><span class="num">???</span> seconds</li>
 </ul>
 left until {{timer.name}}
 
@@ -11,12 +11,26 @@ left until {{timer.name}}
 <script type="text/javascript">
 	$( document ).live( 'pageinit',function(event){
 		var endDate = new Date({{timer.time}}*1000);
-		$("#date-value").html(endDate.toString());
+
+
 		setInterval(paintCountdown,1000)
 
 		function paintCountdown() {
 			var now = new Date();
-			console.log(endDate.getTime()-now.getTime());
-		}
+			var timeDiff = parseInt(endDate.getTime()-(now.getTime()));
+			var numOfDays = timeDiff/(1000*60*60*24);
+			var numOfDaysRem = timeDiff%(1000*60*60*24);
+			var numOfHours = numOfDaysRem/(1000*60*60);
+			var numOfHoursRem = numOfDaysRem%(1000*60*60);
+			var numOfMinutes = numOfHoursRem/(1000*60);
+			var numOfMinutesRem = numOfHoursRem%(1000*60);
+			var numOfSeconds = numOfMinutesRem/(1000);
+			var numOfSecondsRem = numOfMinutesRem%(1000);
+			console.log(numOfSeconds);
+			$(".days-left .num").html(parseInt(numOfDays));
+			$(".hours-left .num").html(parseInt(numOfHours));
+			$(".minutes-left .num").html(parseInt(numOfMinutes));
+			$(".seconds-left .num").html(parseInt(numOfSeconds));
+;		}
 	});
 </script>

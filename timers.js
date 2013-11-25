@@ -1,6 +1,6 @@
 var timers = [
 	{"id":1,"name":"Giftys Graduation","time":1432458000},
-	{"id":2,"name":"Christmas","time":1356426000}
+	{"id":2,"name":"Christmas","time":1387951200}
 ];
 exports.getAllTimers = function() {
    return timers;
