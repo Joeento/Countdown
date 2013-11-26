@@ -27,9 +27,12 @@ app.post('/countdown/data/add', function(req, res) {
    	time[0]=parseInt(time[0])+12;
    }
    var d = new Date(date[2], date[0], date[1], time[0], time[1], 0, 0); 
-   console.log(date);
-   console.log(time);
-   console.log(d.toString()+"")
-   res.redirect('/countdown/timer/1');
+
+   //temporary code to get highest ID in array-will be removed when array is replaced with DB
+   var timers = timerContainer.getAllTimers();
+   var nextID=timers[timers.length-1].id+1
+
+   timerContainer.addTimer({"id":nextID,"name":req.body.name,"time":(d.getTime()/1000)});
+   res.redirect('/countdown/timer/'+nextID);
 });
 app.listen(8080);

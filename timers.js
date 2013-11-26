@@ -10,3 +10,6 @@ exports.getTimer = function(id) {
       if(timers[i].id == id) return timers[i];
    }
 }
+exports.addTimer = function(timerObj) {   timers.push(timerObj);
+   console.log(timers);
+}
