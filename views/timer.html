@@ -26,10 +26,10 @@ left until {{timer.name}}
 			var numOfMinutesRem = numOfHoursRem%(1000*60);
 			var numOfSeconds = numOfMinutesRem/(1000);
 			var numOfSecondsRem = numOfMinutesRem%(1000);
-			console.log(numOfSeconds);
 			$(".days-left .num").html(parseInt(numOfDays));
 			$(".hours-left .num").html(parseInt(numOfHours));
 			$(".minutes-left .num").html(parseInt(numOfMinutes));
-			$(".seconds-left .num").html(parseInt(numOfSeconds));		}
+			$(".seconds-left .num").html(parseInt(numOfSeconds));
+		}
 	});
 </script>
