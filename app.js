@@ -9,16 +9,17 @@ app.engine('html', hbs.__express);
 app.use(express.bodyParser());
  
 app.get('/countdown', function(req, res) {
-   res.render('index',{"timers": timerContainer.getAllTimers()});
+   res.render('index',{"timers": timerContainer.getAllTimers(), "title":"Home", "showBackButon":false});
 });
 app.get('/countdown/add', function(req, res) {
-   res.render('add');
+   res.render('add',{"title":"Add New Timer", "showBackButon":true});
 });
  
 app.get('/countdown/timer/:id', function(req, res) {
    var timer = timerContainer.getTimer(req.params.id);
-   res.render('timer',{"id": req.params.id, "timer":timer});
+   res.render('timer',{"id": req.params.id, "timer":timer, "title":timer.name, "showBackButon":true});
 });
+
 app.post('/countdown/data/add', function(req, res) {
    var date = req.body.date.split("/");
    var time = req.body.time.split(/[\s:]+/);   

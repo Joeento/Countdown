@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Single page template</title> 
+	<title>{{title}} | Countdown</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.css" />
 	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" /> 
 	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
@@ -27,10 +27,14 @@
 
 <body> 
 
-<div data-role="page">
+<div data-role="page" >
 
 	<div data-role="header">
-		<h1>Single page</h1>
+		{{#if showBackButon}}
+		<a data-icon="back" data-rel="back" class="ui-btn-left">Back</a>
+		{{/if}}
+		<h1>{{title}}</h1>
+		<a href="add" data-icon="plus" data-iconpos="notext" class="ui-btn-right"> </a>
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -38,7 +42,7 @@
 	</div><!-- /content -->
 	
 	<div data-role="footer">
-		<h4>Footer content</h4>
+		<h4>&copy;2013</h4>
 	</div><!-- /footer -->
 	
 </div><!-- /page -->
