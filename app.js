@@ -11,6 +11,9 @@ app.use(express.bodyParser());
 app.get('/countdown', function(req, res) {
    res.render('index',{"timers": timerContainer.getAllTimers()});
 });
+app.get('/countdown/add', function(req, res) {
+   res.render('add');
+});
  
 app.get('/countdown/timer/:id', function(req, res) {
    var timer = timerContainer.getTimer(req.params.id);
