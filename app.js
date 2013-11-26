@@ -6,8 +6,11 @@ var timerContainer = require("./timers");
  
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
-app.use(express.bodyParser());
- 
+//app.use(express.bodyParser());
+
+app.use(express.json());
+app.use(express.urlencoded());
+
 app.get('/countdown', function(req, res) {
    res.render('index',{"timers": timerContainer.getAllTimers(), "title":"Home", "showBackButon":false});
 });
