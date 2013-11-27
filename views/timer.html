@@ -9,10 +9,8 @@ left until {{timer.name}}
 
 
 <script type="text/javascript">
-	$( document ).live( 'pageinit',function(event){
+	$( document ).on( 'pageinit',function(event){
 		var endDate = new Date({{timer.time}}*1000);
-
-
 		setInterval(paintCountdown,1000)
 
 		function paintCountdown() {
